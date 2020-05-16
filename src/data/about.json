@@ -1,0 +1,75 @@
+{
+  "education": {
+    "title": "Education",
+    "list": [
+      {
+        "title": "Bangkok Christian College",
+        "level": "Primary & Secondary",
+        "year": "2006-2018",
+        "location": "Bangkok, Thailand"
+      },
+      {
+        "title": "Brooks School",
+        "level": "Post graduate",
+        "year": "2018-2019",
+        "location": "North Andover, Boston"
+      },
+      {
+        "title": "University of Wisconsin-Madison",
+        "level": "Bachelor's degree",
+        "year": "2019-2023",
+        "location": "Madison, Wisconsin"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "list": [
+      {
+        "title": "C, C++",
+        "experience": "6 years",
+        "rating": "5"
+      },
+      {
+        "title": "Java, JavaFX",
+        "experience": "1 year",
+        "rating": "3"
+      },
+      {
+        "title": "Python",
+        "experience": "2 years",
+        "rating": "4"
+      },
+      {
+        "title": "React JS",
+        "experience": "1 month",
+        "rating": "2"
+      }
+    ]
+  },
+  "achievements": {
+    "title": "Achievements",
+    "list": [
+      {
+        "title": "IOI 2018",
+        "title_desc": "International Olympiad in Informatics 2018",
+        "desc": "Bronze medal"
+      },
+      {
+        "title": "APIO 2018",
+        "title_desc": "Asia-Pacific Informatics Olympiad 2018",
+        "desc": "Silver medal"
+      },
+      {
+        "title": "ICPC 2020 WF",
+        "title_desc": "ICPC 2020 World Final",
+        "desc": "Contestant",
+        "note": "The contest is postponed."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "list": []
+  }
+}
