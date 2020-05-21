@@ -1,82 +1,67 @@
 import React from "react";
 import { Heading, Box, Flex, Button, Text, Link } from "@chakra-ui/core";
-import { AiFillHeart } from "react-icons/ai";
-import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 
-const Header = (props) => {
+import { AiFillHeart } from "react-icons/ai";
+import { FaGithub, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+
+const Header = () => {
   const history = useHistory();
 
   function changeRoute(to) {
     history.push(to);
   }
 
-  function ButtonTo(props) {
-    const { to, url } = props;
-    return (
-      <Button
-        mr={3}
-        size="sm"
-        onClick={() => changeRoute(url ? url : to.toLowerCase())}
-      >
-        {to}
-      </Button>
-    );
-  }
-
   return (
-    <Flex
-      as="header"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding={3}
-      bg="white"
-      color="black"
-      position="fixed"
-      width="100%"
-      borderBottom="1px solid"
-      borderBottomColor="gray.200"
-      style={{ zIndex: 1000 }}
-      {...props}
-    >
-      <Flex align="center" mr={5} ml={2}>
+    <Box>
+      <Flex
+        justify="space-between"
+        wrap="wrap"
+        align="center"
+        padding={3}
+        borderBottom="1px solid"
+        borderBottomColor="gray.200"
+        position="fixed"
+        w="100%"
+        zIndex={1000}
+        bg="white"
+        className="header"
+      >
         <Button
           onClick={() => changeRoute("/")}
           variantColor="white"
           variant="ghost"
+          ml={2}
         >
           <Box as={AiFillHeart} mr={2} size={5} fill="red.500" />
-          <Heading as="h1" size="lg" letterSpacing={"-0.1rem"}>
+          <Heading size="lg" letterSpacing={"-0.1rem"}>
             Burapacheep.me
           </Heading>
         </Button>
-      </Flex>
 
-      <Box align="center" justify="space-between">
-        <ButtonTo to="Home" url="/" />
-        <ButtonTo to="About" />
-        <ButtonTo to="Projects" />
-        <ButtonTo to="Blogs" />
-      </Box>
-    </Flex>
+        <Box ml="auto" mr={{ base: 2 }}>
+          <Button onClick={() => changeRoute("/")} mr={3} size="sm">
+            Home
+          </Button>
+          <Button onClick={() => changeRoute("/about")} mr={3} size="sm">
+            About
+          </Button>
+          <Button onClick={() => changeRoute("/projects")} mr={3} size="sm">
+            Projects
+          </Button>
+          <Button onClick={() => changeRoute("/blogs")} size="sm">
+            Blogs
+          </Button>
+        </Box>
+      </Flex>
+      <Box pt={{ base: "95px", md: "65px" }}></Box>
+    </Box>
   );
 };
 
-const Footer = (props) => {
+const Footer = () => {
   return (
-    <Box
-      as="footer"
-      align="center"
-      padding={10}
-      bg="white"
-      color="black"
-      width="100%"
-      textAlign="center"
-      mt="auto"
-      style={{ zIndex: 1000 }}
-      {...props}
-    >
+    <Box textAlign="center" align="center" padding={5} w="100%" mt="auto">
       <Heading as="h1" fontSize="md" mb={3}>
         Contact me!
       </Heading>

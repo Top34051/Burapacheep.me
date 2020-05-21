@@ -4,7 +4,6 @@ import {
   CSSReset,
   Divider,
   Flex,
-  Grid,
   Heading,
   Text,
   Image,
@@ -18,19 +17,18 @@ import Emoji from "../emoji";
 
 const Hello = () => {
   return (
-    <Grid
-      templateColumns="repeat(2, 1fr)"
-      gap="10%"
-      pt="100px"
-      pb="35px"
-      pl="10%"
-      pr="10%"
-      minH="70%"
-      overflow="auto"
+    <Box
+      display="grid"
+      gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+      gridGap={{ base: 10, md: "10%" }}
+      pt={10}
+      pb={10}
+      pl={{ base: 10, lg: 100 }}
+      pr={{ base: 10, lg: 100 }}
     >
       <Flex alignItems="center">
         <Box>
-          <Heading as="h1">
+          <Heading>
             Sawasdee krub! <Emoji symbol="👋" />
           </Heading>
           <Text pt={3}>
@@ -40,7 +38,7 @@ const Hello = () => {
                 Jirayu Burapacheep
               </span>
             }
-            , and my nick name is Top. I'm originally from Bangkok, Thailand,
+            , and my nickname is "Top". I'm originally from Bangkok, Thailand,
             and currently a rising sophomore majoring in computer science (and
             probably data science) at the University of Wisconsin-Madison.
           </Text>
@@ -52,9 +50,9 @@ const Hello = () => {
         </Box>
       </Flex>
       <Flex alignItems="center" justify="center">
-        <Image src="/images/me-river.jpg" rounded="md" maxH="100%" />
+        <Image src="/images/me-river.jpg" rounded="md" maxH="400px" />
       </Flex>
-    </Grid>
+    </Box>
   );
 };
 
@@ -66,7 +64,6 @@ const EduCard = (props) => {
       borderWidth="1px"
       borderColor="gray.300"
       padding={3}
-      h="100%"
       direction="column"
     >
       <Flex align="baseline">
@@ -93,7 +90,6 @@ const SkillCard = (props) => {
       borderWidth="1px"
       borderColor="gray.300"
       padding={3}
-      h="100%"
       direction="column"
     >
       <Text fontSize="xl" fontWeight="semibold" h="30%">
@@ -126,7 +122,6 @@ const AchieCard = (props) => {
       borderWidth="1px"
       borderColor="gray.300"
       padding={3}
-      h="100%"
       direction="column"
     >
       <Text fontSize="xl" fontWeight="bold" h="30%">
@@ -149,26 +144,28 @@ const AchieCard = (props) => {
 };
 
 const Content = (props) => {
-  const { name, minH } = props;
+  const { name } = props;
   const title = AboutData[name].title;
   const dataList = AboutData[name].list;
 
   return (
     <Flex
       direction="column"
-      pt="35px"
-      pb="35px"
-      pl="10%"
-      pr="10%"
-      minH={minH}
-      overflow="auto"
+      pt={10}
+      pb={10}
+      pl={{ base: 10, lg: 100 }}
+      pr={{ base: 10, lg: 100 }}
     >
-      <Heading as="h1">{title}</Heading>
-      <Grid
-        templateColumns="repeat(auto-fit, minmax(255px, 1fr))"
-        gap="2%"
-        pt={5}
-        h="100%"
+      <Heading as="h1" mb={8}>
+        {title}
+      </Heading>
+      <Box
+        display="grid"
+        gridTemplateColumns={{
+          base: "1fr",
+          md: "repeat(auto-fit, minmax(150px, 1fr))",
+        }}
+        gridGap={5}
       >
         {dataList.map((data, index) => {
           switch (name) {
@@ -182,7 +179,7 @@ const Content = (props) => {
           }
           return null;
         })}
-      </Grid>
+      </Box>
     </Flex>
   );
 };
@@ -192,18 +189,16 @@ const About = () => {
   return (
     <ThemeProvider class="App">
       <CSSReset />
-      <Flex direction="column" h="100%">
-        <Header />
-        <Hello />
-        <Divider />
-        <Content name="education" minH="40%" />
-        <Divider />
-        <Content name="skills" minH="35%" />
-        <Divider />
-        <Content name="achievements" minH="40%" />
-        <Divider />
-        <Footer />
-      </Flex>
+      <Header />
+      <Hello />
+      <Divider />
+      <Content name="education" />
+      <Divider />
+      <Content name="skills" />
+      <Divider />
+      <Content name="achievements" />
+      <Divider />
+      <Footer />
     </ThemeProvider>
   );
 };

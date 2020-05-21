@@ -1,5 +1,11 @@
 import React from "react";
-import { ThemeProvider, CSSReset, Flex, Heading } from "@chakra-ui/core";
+import {
+  ThemeProvider,
+  CSSReset,
+  Flex,
+  Heading,
+  Divider,
+} from "@chakra-ui/core";
 import { Header, Footer } from "../components";
 import Emoji from "../emoji";
 
@@ -13,15 +19,14 @@ const NoMatchPage = (props) => {
   return (
     <ThemeProvider>
       <CSSReset />
-      <Flex align="center" direction="column" h="100%">
-        <Header />
-        <Flex h="100%" mt="100px" alignItems="center">
-          <Heading as="h1">
-            Oops, there is nothing here. <Emoji symbol="😭" />
-          </Heading>
-        </Flex>
-        <Footer />
+      <Header />
+      <Flex h="100%" justify="center" align="center">
+        <Heading>
+          Oops, there is nothing here. <Emoji symbol="😭" />
+        </Heading>
       </Flex>
+      <Divider />
+      <Footer />
     </ThemeProvider>
   );
 };

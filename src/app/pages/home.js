@@ -3,7 +3,6 @@ import {
   ThemeProvider,
   CSSReset,
   Divider,
-  Grid,
   Box,
   Flex,
   Text,
@@ -23,38 +22,44 @@ const Body = () => {
   }
 
   return (
-    <Flex minH="750px" overflow="auto" pt="100px" pb="35px" pl="10%" pr="10%">
-      <Grid templateColumns="repeat(auto-fit, minmax(255px, 1fr))" gap="10%">
-        <Flex alignItems="center">
-          <Image src="/images/me.jpg" rounded="md" />
-        </Flex>
-        <Flex alignItems="center">
-          <Box>
-            <Heading as="h1" fontSize={60}>
-              Welcome! <Emoji symbol="🎉" />
-            </Heading>
-            <Heading as="h2" fontSize={30}>
-              This is{" "}
-              <span style={{ color: "teal", fontWeight: "bold" }}>
-                Jirayu Burapacheep
-              </span>
-              .
-            </Heading>
-            <Text mt={3}>Explore this website and my life!</Text>
-            <Button
-              mt={30}
-              variantColor="facebook"
-              variant="solid"
-              onClick={() => {
-                changeRoute("/about");
-              }}
-            >
-              About me
-            </Button>
-          </Box>
-        </Flex>
-      </Grid>
-    </Flex>
+    <Box
+      display="grid"
+      gridTemplateColumns={{ base: "1fr", md: "repeat(2,1fr)" }}
+      gridGap={{ base: 10, md: "10%" }}
+      pt={10}
+      pb={10}
+      pl={{ base: 10, lg: 150 }}
+      pr={{ base: 10, lg: 150 }}
+    >
+      <Flex alignItems="center">
+        <Image src="/images/me.jpg" rounded="md" />
+      </Flex>
+      <Flex alignItems="center">
+        <Box>
+          <Heading as="h1" fontSize={60}>
+            Welcome! <Emoji symbol="🎉" />
+          </Heading>
+          <Heading as="h2" fontSize={30}>
+            This is{" "}
+            <span style={{ color: "teal", fontWeight: "bold" }}>
+              Jirayu Burapacheep
+            </span>
+            .
+          </Heading>
+          <Text mt={3}>Explore this website and my life!</Text>
+          <Button
+            mt={30}
+            variantColor="facebook"
+            variant="solid"
+            onClick={() => {
+              changeRoute("/about");
+            }}
+          >
+            About me
+          </Button>
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 
@@ -63,12 +68,12 @@ const Home = () => {
   return (
     <ThemeProvider class="App">
       <CSSReset />
-      <Flex direction="column" h="100%">
-        <Header />
-        <Body />
-        <Divider />
-        <Footer />
-      </Flex>
+      {/* <Flex direction="column" h="100%"> */}
+      <Header />
+      <Body />
+      <Divider />
+      <Footer />
+      {/* </Flex> */}
     </ThemeProvider>
   );
 };
